@@ -38,3 +38,260 @@ nav a:hover,.mobile-menu a:hover,.footer a:hover,.text-link:hover,.product-link:
 .product-info h3 a{transition:color .25s}.product-info h3 a:hover{color:#7894ad}
 @media(hover:none){.button:hover,.nav-cta:hover,.info-card:hover,.hero-art:hover,.feature-visual:hover,.detail-art:hover{transform:none;box-shadow:none}}
 @media(prefers-reduced-motion:reduce){.motion-reveal{opacity:1!important;transform:none!important;transition:none!important}.hero-copy>*{animation:none!important}}
+
+/* ==========================================
+   FORMA — ULTRA PREMIUM EXPERIENCE
+========================================== */
+
+:root {
+  --forma-glow: rgba(255,255,255,.55);
+  --forma-ease: cubic-bezier(.16,1,.3,1);
+}
+
+/* Fond vivant */
+body {
+  background:
+    radial-gradient(
+      ellipse at 10% 5%,
+      rgba(255,255,255,.55),
+      transparent 35%
+    ),
+    radial-gradient(
+      ellipse at 90% 35%,
+      rgba(224,211,193,.22),
+      transparent 40%
+    ),
+    var(--cream);
+  background-attachment: fixed;
+}
+
+/* Animations du fond */
+.hero-art,
+.feature-visual {
+  isolation: isolate;
+}
+
+.hero-art::after,
+.feature-visual::after {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  pointer-events: none;
+  z-index: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 40%,
+    rgba(255,255,255,.25) 50%,
+    transparent 60%
+  );
+  transform: translateX(-60%) rotate(15deg);
+  animation: forma-light 9s ease-in-out infinite;
+}
+
+@keyframes forma-light {
+  0%, 100% {
+    transform: translateX(-60%) rotate(15deg);
+  }
+  50% {
+    transform: translateX(60%) rotate(15deg);
+  }
+}
+
+/* Cubes encore plus vivants */
+.cube {
+  animation:
+    float 6s ease-in-out infinite,
+    forma-breathe 4s ease-in-out infinite;
+}
+
+@keyframes forma-breathe {
+  0%, 100% {
+    filter: drop-shadow(
+      20px 30px 20px rgba(52,68,90,.13)
+    );
+  }
+  50% {
+    filter: drop-shadow(
+      25px 38px 28px rgba(52,68,90,.22)
+    );
+  }
+}
+
+/* Cartes produits premium */
+.product-card {
+  transition:
+    transform .65s var(--forma-ease),
+    box-shadow .65s var(--forma-ease),
+    border-color .4s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-13px) scale(1.018);
+  box-shadow:
+    0 35px 75px rgba(52,68,90,.13),
+    0 5px 15px rgba(255,255,255,.5);
+  border-color: rgba(150,171,187,.65);
+}
+
+/* Reflet des cartes */
+.product-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    125deg,
+    transparent 25%,
+    rgba(255,255,255,.45) 48%,
+    transparent 65%
+  );
+  transform: translateX(-120%);
+  transition: transform 1s var(--forma-ease);
+  pointer-events: none;
+}
+
+.product-card:hover .product-art::after {
+  transform: translateX(120%);
+}
+
+/* Boutons premium */
+.button,
+.nav-cta {
+  transition:
+    transform .5s var(--forma-ease),
+    box-shadow .5s var(--forma-ease),
+    background .4s ease;
+}
+
+.button:hover,
+.nav-cta:hover {
+  transform: translateY(-5px) scale(1.045);
+  box-shadow: 0 18px 38px rgba(52,68,90,.2);
+}
+
+/* Logo */
+.brand {
+  transition: transform .5s var(--forma-ease);
+}
+
+.brand:hover {
+  transform: scale(1.035);
+}
+
+.brand-mark {
+  transition:
+    transform .65s var(--forma-ease),
+    box-shadow .5s ease;
+}
+
+.brand:hover .brand-mark {
+  transform: rotate(-9deg) scale(1.1);
+  box-shadow: 0 10px 25px rgba(52,68,90,.13);
+}
+
+/* Titres */
+.hero h1,
+.page-intro h1 {
+  animation: forma-title .9s var(--forma-ease) both;
+}
+
+@keyframes forma-title {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Sections */
+.section-heading,
+.feature-content,
+.info-grid,
+.product-grid {
+  animation: forma-section .9s var(--forma-ease) both;
+}
+
+@keyframes forma-section {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Liens */
+nav a::after {
+  height: 2px;
+  border-radius: 10px;
+  background: linear-gradient(
+    90deg,
+    #b8c9d6,
+    #e0d2c0
+  );
+}
+
+/* Blocs d'informations */
+.info-card {
+  transition:
+    transform .55s var(--forma-ease),
+    box-shadow .55s var(--forma-ease);
+}
+
+.info-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 55px rgba(52,68,90,.1);
+}
+
+/* Images et visuels */
+.hero-art,
+.feature-visual,
+.detail-art {
+  transition:
+    transform .7s var(--forma-ease),
+    box-shadow .7s var(--forma-ease);
+}
+
+.hero-art:hover,
+.feature-visual:hover,
+.detail-art:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 70px rgba(52,68,90,.15);
+}
+
+/* FAQ */
+.faq-list details {
+  transition:
+    background .4s ease,
+    padding .4s var(--forma-ease);
+}
+
+.faq-list details[open] {
+  background: rgba(255,255,255,.55);
+  padding-inline: 20px;
+}
+
+/* Accessibilité */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+@media (hover: none) {
+  .product-card:hover,
+  .info-card:hover,
+  .hero-art:hover {
+    transform: none;
+  }
+}
