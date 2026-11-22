@@ -1,0 +1,4 @@
+import Link from "next/link";
+import { ArrowUpRight, Box } from "lucide-react";
+import type { Product } from "@/lib/catalog";
+export function ProductCard({product}:{product:Product}){return <article className="product-card"><Link href={`/produit/${product.slug}`} className={`product-art ${product.accent}`}><div className="product-shape"><Box size={58} strokeWidth={1.1}/></div><span className="art-caption">{product.imageLabel}</span></Link><div className="product-info"><span className="eyebrow">{product.category}</span><h3><Link href={`/produit/${product.slug}`}>{product.name}</Link></h3><p>{product.description}</p><div className="product-meta"><span>{product.level}</span><b>{product.priceLabel}</b></div><Link className="product-link" href={`/produit/${product.slug}`}>Découvrir <ArrowUpRight size={16}/></Link></div></article>}
